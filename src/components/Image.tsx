@@ -1,5 +1,7 @@
 "use client";
 import { Image as IkImage } from "@imagekit/next";
+import NextImg from "next/image";
+
 const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
 
 type ImageType = {
@@ -12,16 +14,20 @@ type ImageType = {
 };
 
 const Image = ({ src, w, h, alt, className, tr }: ImageType) => {
+  if (src.startsWith("/")) {
+    return (
+      <NextImg src={src} width={w} height={h} alt={alt} className={className} />
+    );
+  }
+
   return (
     <IkImage
       urlEndpoint={urlEndpoint}
       src={src}
-      width={w}
-      height={h}
       alt={alt}
       className={className}
       {...(tr
-        ? { transformation: [{ width: `${w}`, height: `${h}` }] }
+        ? { transformation: [{ width: w?.toString(), height: h?.toString() }] }
         : { width: w, height: h })}
     />
   );
