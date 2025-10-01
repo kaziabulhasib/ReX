@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "./Image";
 
 const menuList = [
   {
@@ -71,7 +71,7 @@ const LeftBar = () => {
       <div className=' flex flex-col gap-4 items-center xxl:items-start'>
         {/* LOGO  */}
         <Link className='p-2 rounded-full bg-[#181818] ' href='/'>
-          <Image src='icons/logo.svg' alt='logo' width={24} height={24} />
+          <Image src='/icons/logo.svg' alt='logo' w={24} h={24} />
         </Link>
         {/* MENU LIST  */}
         <div className='flex flex-col gap-4'>
@@ -80,11 +80,17 @@ const LeftBar = () => {
               className='p-2 rounded-full bg-[#181818] flex items-center gap-4'
               href={item.link}
               key={item.id}>
-              <Image
-                src={`icons/${item.icon}`}
+              {/* <Image
+                src={`/icons/${item.icon}`}
                 alt={item.name}
-                height={24}
-                width={24}
+                h={24}
+                w={24}
+              /> */}
+              <Image
+                src={`/icons/${item.icon}`}
+                alt={item.name}
+                h={24}
+                w={24}
               />
               <span className='hidden xxl:inline'>{item.name}</span>
             </Link>
@@ -94,7 +100,7 @@ const LeftBar = () => {
         <Link
           className=' bg-white text-black font-bold rounded-full w-12  h-12 flex items-center justify-center xxl:hidden'
           href='/'>
-          <Image src='icons/post.svg' alt='new post' width={24} height={24} />
+          <Image src='icons/post.svg' alt='new post' w={24} h={24} />
         </Link>
         <Link
           href='/'
@@ -106,7 +112,13 @@ const LeftBar = () => {
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-2 '>
           <div className='w-10 h-10 relative rounded-full overflow-hidden'>
-            <Image src='/general/avatar.png' alt='user name' fill />
+            <Image
+              src='/general/avatar.png'
+              alt='user name'
+              w={100}
+              h={100}
+              tr={true}
+            />
           </div>
           <div className='hidden xxl:flex flex-col'>
             <span className='font-bold'>username</span>
