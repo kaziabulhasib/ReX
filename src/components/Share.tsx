@@ -2,15 +2,19 @@
 
 import React, { useState } from "react";
 import Image from "./Image";
+import NextImage from "next/image";
 import { shareActions } from "@/actions";
 
 const Share = () => {
   const [media, setMedia] = useState<File | null>(null);
+
   const handleMediaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setMedia(e.target.files[0]);
     }
   };
+
+  const previewURL = media ? URL.createObjectURL(media) : null;
   return (
     <form action={shareActions} className='p-4 flex  gap-4'>
       {/* AVATAR  */}
@@ -25,6 +29,15 @@ const Share = () => {
           placeholder="What's happening?"
           className=' bg-transparent outline-none placeholder:text-textGray text-xl'
         />
+        {/* image preview */}
+        {previewURL && (
+          <div className='relative rounded-xl overflow-hidden'>
+            <NextImage src={previewURL} alt='' width={600} height={600} />
+            <div className='absolute  top-2 left-2 bg-black bg-opacity-50 text-white px-4 py-1 rounded-full font-bold text-sm cursor-pointer'>
+              Edit
+            </div>
+          </div>
+        )}
         {/* ICONS & buttons  */}
         <div className='flex justify-between items-center gap-4 flex-wrap'>
           {/* ICONS  */}

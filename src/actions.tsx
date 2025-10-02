@@ -19,7 +19,7 @@ export const shareActions = async (formData: FormData) => {
     {
       file: buffer,
       fileName: file.name,
-      folder: "/ReX-app/posts",
+      folder: "/posts",
       transformation: {
         pre: "w-600",
       },
