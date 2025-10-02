@@ -3,8 +3,32 @@ import Image from "./Image";
 import Link from "next/link";
 import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
+import { imagekit } from "@/utils";
 
-const Post = () => {
+interface FileDetailsResponse {
+  width: number;
+  height: number;
+  filePath: string;
+  url: string;
+  fileType: string;
+  customMetadata?: { sensitive: boolean };
+}
+
+const Post = async () => {
+  const getFileDetails = async (
+    fileId: string
+  ): Promise<FileDetailsResponse> => {
+    return new Promise((resolve, reject) => {
+      imagekit.getFileDetails(fileId, function (error, result) {
+        if (error) reject(error);
+        else resolve(result as FileDetailsResponse);
+      });
+    });
+  };
+
+  const fileDetails = await getFileDetails("68deacd15c7cd75eb8e4bce6");
+
+  console.log(fileDetails);
   return (
     <div className='p-4 border-y-[1px] border-borderGray'>
       {/* POST TYPE */}
@@ -44,7 +68,16 @@ const Post = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
             delectus aperiam harum, et quisquam amet?
           </p>
-          <Image src='/general/post.jpeg' alt='' w={600} h={600} />
+
+          {fileDetails && (
+            <Image
+              src={fileDetails.url}
+              alt=''
+              w={fileDetails.width}
+              h={fileDetails.height}
+              className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
+            />
+          )}
           <PostInteractions />
         </div>
       </div>

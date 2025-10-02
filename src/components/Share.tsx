@@ -85,6 +85,7 @@ const Share = () => {
               name='file'
               onChange={handleMediaChange}
               className='hidden'
+              accept='image/*,video/*'
               id='file'
             />
             <label htmlFor='file'>
