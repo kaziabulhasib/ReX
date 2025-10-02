@@ -2,6 +2,7 @@ import React from "react";
 import Image from "./Image";
 import Link from "next/link";
 import PostInfo from "./PostInfo";
+import PostInteractions from "./PostInteractions";
 
 const Post = () => {
   return (
@@ -43,7 +44,8 @@ const Post = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
             delectus aperiam harum, et quisquam amet?
           </p>
-          <Image src="/general/post.jpeg" alt="" w={600} h={600} />
+          <Image src='/general/post.jpeg' alt='' w={600} h={600} />
+          <PostInteractions />
         </div>
       </div>
     </div>
