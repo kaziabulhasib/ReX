@@ -4,9 +4,18 @@ import React, { useState } from "react";
 import Image from "./Image";
 import NextImage from "next/image";
 import { shareActions } from "@/actions";
+import ImageEditor from "./ImageEditor";
 
 const Share = () => {
   const [media, setMedia] = useState<File | null>(null);
+  const [isEditorOpen, setIsEditorOpen] = useState(false);
+  const [settings, setSettings] = useState<{
+    type: "original" | "wide" | "square";
+    sensitive: boolean;
+  }>({
+    type: "original",
+    sensitive: false,
+  });
 
   const handleMediaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -29,15 +38,30 @@ const Share = () => {
           placeholder="What's happening?"
           className=' bg-transparent outline-none placeholder:text-textGray text-xl'
         />
+
         {/* image preview */}
         {previewURL && (
           <div className='relative rounded-xl overflow-hidden'>
             <NextImage src={previewURL} alt='' width={600} height={600} />
-            <div className='absolute  top-2 left-2 bg-black bg-opacity-50 text-white px-4 py-1 rounded-full font-bold text-sm cursor-pointer'>
+            <div 
+            onClick={() => setIsEditorOpen(true)}
+            className='absolute  top-2 left-2 bg-black bg-opacity-50 text-white px-4 py-1 rounded-full font-bold text-sm cursor-pointer'>
               Edit
             </div>
           </div>
         )}
+
+        {isEditorOpen && previewURL && (
+          <div>
+            <ImageEditor
+              onClose={() => setIsEditorOpen(false)}
+              previewURL={previewURL}
+              settings={settings}
+              setSettings={setSettings}
+            />
+          </div>
+        )}
+
         {/* ICONS & buttons  */}
         <div className='flex justify-between items-center gap-4 flex-wrap'>
           {/* ICONS  */}
