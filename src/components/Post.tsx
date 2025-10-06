@@ -27,7 +27,7 @@ const Post = async () => {
     });
   };
 
-  const fileDetails = await getFileDetails("68e381305c7cd75eb8efb35d");
+  const fileDetails = await getFileDetails("68e40b105c7cd75eb87b4997");
 
   console.log(fileDetails);
   return (
@@ -84,6 +84,7 @@ const Post = async () => {
               className={
                 fileDetails?.customMetadata?.sensitive ? "blur-lg" : ""
               }
+              
             />
           )}
           <PostInteractions />
