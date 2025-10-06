@@ -75,7 +75,7 @@ const Post = async () => {
               alt=''
               w={fileDetails.width}
               h={fileDetails.height}
-              className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
+              // className={fileDetails.customMetadata?.sensitive ? "blur-lg" : ""}
             />
           )}
           <PostInteractions />
