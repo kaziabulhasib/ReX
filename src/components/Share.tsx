@@ -40,9 +40,8 @@ const Share = () => {
           placeholder="What's happening?"
           className=' bg-transparent outline-none placeholder:text-textGray text-xl'
         />
-
         {/* image preview */}
-        {previewURL && (
+        {media?.type.includes("image") && previewURL && (
           <div className='relative rounded-xl overflow-hidden'>
             <NextImage
               src={previewURL}
@@ -63,8 +62,21 @@ const Share = () => {
               Edit
             </div>
           </div>
+        )}{" "}
+        {media?.type.includes("video") && previewURL && (
+          <div className='relative'>
+            <video
+              src={previewURL}
+              controls
+              className='w-full max-h-96 rounded-xl'
+            />
+            <div className='absolute top-2 right-2 bg-black bg-opacity-50 text-white w-8 h-8 flex items-center justify-center rounded-full font-bold  cursor-pointer'
+            onClick={() => setMedia(null)}
+            >
+              x
+            </div>
+          </div>
         )}
-
         {isEditorOpen && previewURL && (
           <div>
             <ImageEditor
@@ -75,7 +87,6 @@ const Share = () => {
             />
           </div>
         )}
-
         {/* ICONS & buttons  */}
         <div className='flex justify-between items-center gap-4 flex-wrap'>
           {/* ICONS  */}

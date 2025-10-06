@@ -26,7 +26,7 @@ const Post = async () => {
     });
   };
 
-  const fileDetails = await getFileDetails("68deacd15c7cd75eb8e4bce6");
+  const fileDetails = await getFileDetails("68e381305c7cd75eb8efb35d");
 
   console.log(fileDetails);
   return (
