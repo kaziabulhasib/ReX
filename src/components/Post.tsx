@@ -58,8 +58,8 @@ const Post = async () => {
           {/* TOP */}
           <div className='flex justify-between items-center gap-2'>
             <div className={`flex items-center gap-2 flex-wrap `}>
-              <h1 className='text-md font-bold'>Lama Dev</h1>
-              <span className={`text-textGray `}>@lamaWebDev</span>
+              <h1 className='text-md font-bold'>Kazi Hasib</h1>
+              <span className={`text-textGray `}>@hasib98</span>
               <span className='text-textGray'>1 day ago</span>
             </div>
             <PostInfo />

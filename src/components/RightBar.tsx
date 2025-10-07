@@ -7,7 +7,7 @@ import Recommendations from "./Recommendations";
 
 const RightBar = () => {
   return (
-    <div className='pt-4 flex flex-col gap-4 sticky top-0 '>
+    <div className='pt-4 flex flex-col gap-4  lg:sticky top-0 h-screen '>
       <Search />
       <PopularTags />
       <Recommendations />
