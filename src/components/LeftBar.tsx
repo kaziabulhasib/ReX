@@ -99,11 +99,11 @@ const LeftBar = () => {
         {/* BUTTON  */}
         <Link
           className=' bg-white text-black font-bold rounded-full w-12  h-12 flex items-center justify-center xxl:hidden'
-          href='/'>
+          href='/compose/post'>
           <Image src='icons/post.svg' alt='new post' w={24} h={24} />
         </Link>
         <Link
-          href='/'
+          href='/compose/post'
           className='hidden xxl:block bg-white text-black font-bold rounded-full py-2 px-20'>
           Post
         </Link>

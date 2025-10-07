@@ -1,39 +1,3 @@
-// import Feed from "@/components/Feed";
-// import Share from "@/components/Share";
-// import Link from "next/link";
-
-// const Homepage = () => {
-//   return (
-//     <div className='relative h-[600px] w-[600px]'>
-//       <div className=' px-4 pt-4 flex items-center justify-between text-textGray font-bold border-b-[1px] border-borderGray'>
-//         <Link
-//           className='pb-3 flex items-center border-b-4 border-iconBlue'
-//           href='/'>
-//           For You
-//         </Link>
-//         <Link className='pb-3 flex items-center ' href='/'>
-//           Following
-//         </Link>
-//         <Link className='pb-3 hidden md:flex items-center ' href='/'>
-//           css
-//         </Link>
-//         <Link className='pb-3 hidden md:flex items-center ' href='/'>
-//           Javascript
-//         </Link>
-//         <Link className='pb-3 hidden md:flex items-center ' href='/'>
-//           React
-//         </Link>
-//       </div>
-//       <Share />
-//       <Feed />
-//     </div>
-//   );
-// };
-
-// export default Homepage;
-
-// --------------------------------------
-
 "use client";
 
 import Image from "@/components/Image";
@@ -60,7 +24,7 @@ const PostModal = () => {
         <div className='py-8 flex gap-4'>
           <div className='relative w-10 h-10 rounded-full overflow-hidden'>
             <Image
-              src='/general/avatar.png'
+              src='general/avatar.png'
               alt='Lama Dev'
               w={100}
               h={100}
@@ -74,7 +38,7 @@ const PostModal = () => {
           />
         </div>
         {/* BOTTOM */}
-        <div className='flex items-center justify-between gap-4 flex-wrap border-t border-borderGray pt-4'>
+        <div className=' flex items-center justify-between gap-4 flex-wrap border-t border-borderGray pt-4'>
           <div className='flex gap-4 flex-wrap'>
             <Image
               src='/icons/image.svg'
