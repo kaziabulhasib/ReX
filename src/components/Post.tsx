@@ -15,7 +15,7 @@ interface FileDetailsResponse {
   customMetadata?: { sensitive: boolean };
 }
 
-const Post = async ({type}:{type:"post" | "status"}) => {
+const Post = async ({ type }: { type: "post" | "status" }) => {
   const getFileDetails = async (
     fileId: string
   ): Promise<FileDetailsResponse> => {
@@ -47,28 +47,58 @@ const Post = async ({type}:{type:"post" | "status"}) => {
         <span>Hasib kazi reposted</span>
       </div>
       {/* POST CONTENT */}
-      <div className={`flex gap-4 }`}>
+      <div className={`flex gap-4 ${type === "status" && "flex-col"}`}>
         {/* AVATAR */}
-        <div className={` relative w-10 h-10 rounded-full overflow-hidden`}>
+        <div
+          className={`${
+            type === "status" && "hidden"
+          } relative w-10 h-10 rounded-full overflow-hidden`}>
           <Image src='/general/avatar.png' alt='' w={100} h={100} tr={true} />
         </div>
 
         {/* CONTENT */}
         <div className='flex-1 flex flex-col gap-2'>
-          {/* TOP */}
-          <div className='flex justify-between items-center gap-2'>
-            <div className={`flex items-center gap-2 flex-wrap `}>
-              <h1 className='text-md font-bold'>Kazi Hasib</h1>
-              <span className={`text-textGray `}>@hasib98</span>
-              <span className='text-textGray'>1 day ago</span>
-            </div>
+          <div className='w-full flex justify-between'>
+            {/* TOP */}
+            <Link href='/hasib98' className='flex gap-4'>
+              <div
+                className={`${
+                  type !== "status" && "hidden"
+                } relative w-10 h-10 rounded-full overflow-hidden`}>
+                <Image
+                  src='/general/avatar.png'
+                  alt=''
+                  w={100}
+                  h={100}
+                  tr={true}
+                />
+              </div>
+              <div
+                className={`flex items-center gap-2 flex-wrap ${
+                  type === "status" && "flex-col gap-0 !items-start"
+                } `}>
+                <h1 className='text-md font-bold'>Kazi Hasib</h1>
+                <span
+                  className={`text-textGray ${
+                    type === "status" && "text-sm"
+                  } `}>
+                  @hasib98
+                </span>
+                {type !== "status" && (
+                  <span className='text-textGray'>1 day ago</span>
+                )}
+              </div>
+            </Link>
+
             <PostInfo />
           </div>
           {/* text  & media  */}
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-            delectus aperiam harum, et quisquam amet?
-          </p>
+          <Link href={`/hasib98/status/123456`} className='flex flex-col gap-2'>
+            <p className={` ${type === "status" && "text-lg"} `}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
+              delectus aperiam harum, et quisquam amet?
+            </p>
+          </Link>
 
           {fileDetails && fileDetails.fileType === "image" ? (
             <Image
@@ -84,8 +114,10 @@ const Post = async ({type}:{type:"post" | "status"}) => {
               className={
                 fileDetails?.customMetadata?.sensitive ? "blur-lg" : ""
               }
-              
             />
+          )}
+          {type === "status" && (
+            <span className='text-textGray'>9:15pm . Nov 13, 2025</span>
           )}
           <PostInteractions />
         </div>
