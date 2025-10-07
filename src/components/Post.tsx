@@ -15,7 +15,7 @@ interface FileDetailsResponse {
   customMetadata?: { sensitive: boolean };
 }
 
-const Post = async () => {
+const Post = async ({type}:{type:"post" | "status"}) => {
   const getFileDetails = async (
     fileId: string
   ): Promise<FileDetailsResponse> => {
