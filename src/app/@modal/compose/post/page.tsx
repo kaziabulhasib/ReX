@@ -24,7 +24,7 @@ const PostModal = () => {
         <div className='py-8 flex gap-4'>
           <div className='relative w-10 h-10 rounded-full overflow-hidden'>
             <Image
-              src='general/avatar.png'
+              src='/general/avatar.png'
               alt='Lama Dev'
               w={100}
               h={100}
@@ -38,7 +38,7 @@ const PostModal = () => {
           />
         </div>
         {/* BOTTOM */}
-        <div className=' flex items-center justify-between gap-4 flex-wrap border-t border-borderGray pt-4'>
+        <div className='flex items-center justify-between gap-4 flex-wrap border-t border-borderGray pt-4'>
           <div className='flex gap-4 flex-wrap'>
             <Image
               src='/icons/image.svg'

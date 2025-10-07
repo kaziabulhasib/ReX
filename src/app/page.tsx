@@ -1,131 +1,36 @@
-// import Feed from "@/components/Feed";
-// import Share from "@/components/Share";
-// import Link from "next/link";
+import Feed from "@/components/Feed";
+import Share from "@/components/Share";
+import Link from "next/link";
 
-// const Homepage = () => {
-//   return (
-//     <div className='relative h-[600px] w-[600px]'>
-//       <div className=' px-4 pt-4 flex items-center justify-between text-textGray font-bold border-b-[1px] border-borderGray'>
-//         <Link
-//           className='pb-3 flex items-center border-b-4 border-iconBlue'
-//           href='/'>
-//           For You
-//         </Link>
-//         <Link className='pb-3 flex items-center ' href='/'>
-//           Following
-//         </Link>
-//         <Link className='pb-3 hidden md:flex items-center ' href='/'>
-//           css
-//         </Link>
-//         <Link className='pb-3 hidden md:flex items-center ' href='/'>
-//           Javascript
-//         </Link>
-//         <Link className='pb-3 hidden md:flex items-center ' href='/'>
-//           React
-//         </Link>
-//       </div>
-//       <Share />
-//       <Feed />
-//     </div>
-//   );
-// };
-
-// export default Homepage;
-
-// --------------------------------------
-
-"use client";
-
-import Image from "@/components/Image";
-import { useRouter } from "next/navigation";
-
-const PostModal = () => {
-  const router = useRouter();
-
-  const closeModal = () => {
-    router.back();
-  };
-
+const Homepage = () => {
   return (
-    <div className='absolute w-screen h-screen top-0 left-0 z-20 bg-[#293139a6] flex justify-center'>
-      <div className='py-4 px-8 rounded-xl bg-black w-[600px] h-max mt-12'>
-        {/* TOP */}
-        <div className='flex items-center justify-between'>
-          <div className='cursor-pointer' onClick={closeModal}>
-            X
-          </div>
-          <div className='text-iconBlue font-bold'>Drafts</div>
-        </div>
-        {/* CENTER */}
-        <div className='py-8 flex gap-4'>
-          <div className='relative w-10 h-10 rounded-full overflow-hidden'>
-            <Image
-              src='/general/avatar.png'
-              alt='Lama Dev'
-              w={100}
-              h={100}
-              tr={true}
-            />
-          </div>
-          <input
-            className='flex-1 bg-transparent outline-none text-lg'
-            type='text'
-            placeholder='What is happening?!'
-          />
-        </div>
-        {/* BOTTOM */}
-        <div className='flex items-center justify-between gap-4 flex-wrap border-t border-borderGray pt-4'>
-          <div className='flex gap-4 flex-wrap'>
-            <Image
-              src='/icons/image.svg'
-              alt=''
-              w={20}
-              h={20}
-              className='cursor-pointer'
-            />
-            <Image
-              src='/icons/gif.svg'
-              alt=''
-              w={20}
-              h={20}
-              className='cursor-pointer'
-            />
-            <Image
-              src='/icons/poll.svg'
-              alt=''
-              w={20}
-              h={20}
-              className='cursor-pointer'
-            />
-            <Image
-              src='/icons/emoji.svg'
-              alt=''
-              w={20}
-              h={20}
-              className='cursor-pointer'
-            />
-            <Image
-              src='/icons/schedule.svg'
-              alt=''
-              w={20}
-              h={20}
-              className='cursor-pointer'
-            />
-            <Image
-              src='/icons/location.svg'
-              alt=''
-              w={20}
-              h={20}
-              className='cursor-pointer'
-            />
-          </div>
-          <button className='py-2 px-5 text-black bg-white rounded-full font-bold'>
-            Post
-          </button>
-        </div>
+    <div className='relative h-[600px] w-[600px]'>
+      <div className=' px-4 pt-4 flex items-center justify-between text-textGray font-bold border-b-[1px] border-borderGray'>
+        <Link
+          className='pb-3 flex items-center border-b-4 border-iconBlue'
+          href='/'>
+          For You
+        </Link>
+        <Link className='pb-3 flex items-center ' href='/'>
+          Following
+        </Link>
+        <Link className='pb-3 hidden md:flex items-center ' href='/'>
+          css
+        </Link>
+        <Link className='pb-3 hidden md:flex items-center ' href='/'>
+          Javascript
+        </Link>
+        <Link className='pb-3 hidden md:flex items-center ' href='/'>
+          React
+        </Link>
       </div>
+      <Share />
+      <Feed />
     </div>
   );
 };
 
-export default PostModal;
+export default Homepage;
+
+
+
