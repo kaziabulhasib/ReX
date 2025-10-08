@@ -1,8 +1,15 @@
 import Feed from "@/components/Feed";
 import Share from "@/components/Share";
+import { prisma } from "@/prisma";
 import Link from "next/link";
 
-const Homepage = () => {
+const Homepage = async () => {
+  const users = await prisma.user.delete({
+    where: {
+      id: "testuser",
+    },
+  });
+  console.log(users);
   return (
     <div className='relative h-[600px] w-[600px]'>
       <div className=' px-4 pt-4 flex items-center justify-between text-textGray font-bold border-b-[1px] border-borderGray'>
