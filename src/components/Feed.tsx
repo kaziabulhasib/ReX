@@ -8,10 +8,14 @@ const Feed = async () => {
     <div>
       {posts.map((post) => (
         <div className='' key={post.id}>
-          <Post type="post" />
+          <Post type='post' />
         </div>
       ))}
     </div>
+
+    // <div>
+    //   <Post type="post" />
+    // </div>
   );
 };
 
