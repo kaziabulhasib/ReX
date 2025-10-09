@@ -91,18 +91,23 @@ const SignInPage = () => {
               </div>
             </SignIn.Strategy>
             <SignIn.Strategy name='reset_password_email_code'>
-             
-              <p className="text-sm mb-2">
+              <p className='text-sm mb-2'>
                 We sent a code to <SignIn.SafeIdentifier />.
               </p>
 
               <Clerk.Field name='code' className='flex flex-col gap-2'>
-              
-                <Clerk.Input className="py-2 px-6 rounded-full w-72 text-black placeholder:text-sm" placeholder="verification code" />
-                <Clerk.FieldError className="text-red-300 text-sm" />
+                <Clerk.Input
+                  className='py-2 px-6 rounded-full w-72 text-black placeholder:text-sm'
+                  placeholder='verification code'
+                />
+                <Clerk.FieldError className='text-red-300 text-sm' />
               </Clerk.Field>
 
-              <SignIn.Action submit className="mt-2 text-sm underline w-72 text-center text-iconBlue">Continue</SignIn.Action>
+              <SignIn.Action
+                submit
+                className='mt-2 text-sm underline w-72 text-center text-iconBlue'>
+                Continue
+              </SignIn.Action>
             </SignIn.Strategy>
           </SignIn.Step>
           <SignIn.Step
@@ -116,6 +121,24 @@ const SignInPage = () => {
               Go back
             </SignIn.Action>
           </SignIn.Step>
+          <SignIn.Step name='reset-password'>
+            <h1>Reset your password</h1>
+
+            <Clerk.Field name='password'>
+              <Clerk.Label>New password</Clerk.Label>
+              <Clerk.Input />
+              <Clerk.FieldError />
+            </Clerk.Field>
+
+            <Clerk.Field name='confirmPassword'>
+              <Clerk.Label>Confirm password</Clerk.Label>
+              <Clerk.Input />
+              <Clerk.FieldError />
+            </Clerk.Field>
+
+            <SignIn.Action submit>Reset password</SignIn.Action>
+          </SignIn.Step>
+          {/* OR SIGN UP  */}
         </SignIn.Root>
       </div>
     </div>
