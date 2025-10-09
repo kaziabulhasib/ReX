@@ -2,6 +2,7 @@
 
 import * as Clerk from "@clerk/elements/common";
 import * as SignIn from "@clerk/elements/sign-in";
+import Link from "next/link";
 
 const SignInPage = () => {
   return (
@@ -139,6 +140,22 @@ const SignInPage = () => {
             <SignIn.Action submit>Reset password</SignIn.Action>
           </SignIn.Step>
           {/* OR SIGN UP  */}
+          <div className='w-72 flex items-center gap-4'>
+            <div className='h-px bg-borderGray flex-grow'></div>
+            <div className='text-textGray'>or</div>
+            <div className='h-px bg-borderGray flex-grow'></div>
+          </div>
+          <Link
+            href='/sign-up'
+            className='bg-iconBlue rounded-full p-2 text-white font-bold text-center w-72'>
+            Create account
+          </Link>
+          <p className='w-72 text-xs'>
+            By signing up, you agree to our{" "}
+            <span className='text-iconBlue'>Terms of Service</span> and{" "}
+            <span className='text-iconBlue'>Privacy Policy</span> including{" "} 
+            <span className='text-iconBlue'>cookie policy</span>
+          </p>
         </SignIn.Root>
       </div>
     </div>
