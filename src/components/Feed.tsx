@@ -8,8 +8,9 @@ const Feed = async ({ userProfileId }: { userProfileId: string }) => {
 
   if (!userId) return;
   const whereCondition = userProfileId
-    ? { userId: userProfileId }
+    ? { parentPostId: null, userId: userProfileId }
     : {
+        parentPostId: null,
         userId: {
           in: [
             userId,
@@ -23,7 +24,6 @@ const Feed = async ({ userProfileId }: { userProfileId: string }) => {
         },
       };
 
-
   const posts = await prisma.post.findMany({
     where: whereCondition,
   });
@@ -33,11 +33,11 @@ const Feed = async ({ userProfileId }: { userProfileId: string }) => {
   // FETCH USER FROM CURRENT USER AND FOLLOWING
   return (
     <div>
-      {/* {posts.map((post) => (
+      {posts.map((post) => (
         <div className='' key={post.id}>
           <Post type='post' />
         </div>
-      ))} */}
+      ))}
     </div>
 
     // <div>

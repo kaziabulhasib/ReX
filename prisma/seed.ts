@@ -6,8 +6,10 @@ async function main() {
   // Create 5 users with unique details
   const users = [];
   for (let i = 1; i <= 5; i++) {
-    const user = await prisma.user.create({
-      data: {
+    const user = await prisma.user.upsert({
+      where: { id: `user${i}` },
+      update: {},
+      create: {
         id: `user${i}`,
         email: `user${i}@example.com`,
         username: `user${i}`,
