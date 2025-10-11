@@ -29,7 +29,7 @@ const Post = async ({ type }: { type: "post" | "status" }) => {
 
   const fileDetails = await getFileDetails("68e40b105c7cd75eb87b4997");
 
-  console.log(fileDetails);
+  // console.log(fileDetails);
   return (
     <div className='p-4 border-y-[1px] border-borderGray'>
       {/* POST TYPE */}
